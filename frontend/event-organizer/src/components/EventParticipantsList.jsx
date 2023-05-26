@@ -8,9 +8,17 @@ export const EventParticipantsList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleDeleteParticipant = (participantId) => {
-    setParticipants(
-      participants.filter((participant) => participant.id !== participantId)
-    );
+    // setParticipants(
+    //   participants.filter((participant) => participant.id !== participantId)
+    // );
+    const id = participantId;
+    axios
+      .delete(`http://localhost:8000/participants/${id}`)
+      .then((response) => {
+        console.log("deleted", response);
+        window.location.reload();
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -22,8 +30,6 @@ export const EventParticipantsList = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  // console.log("addedParticipants", addedParticipants);
 
   if (isLoading) {
     return <div>Loading...</div>;

@@ -2,7 +2,12 @@ import { Card, Button } from "react-bootstrap";
 
 export const EventParticipant = ({ post, onDelete }) => {
   const handleOnClick = () => {
-    onDelete(post.id);
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this entry?"
+    );
+    if (confirmDelete) {
+      onDelete(post.id);
+    }
   };
 
   const { name, surname, email, phoneNumber } = post;

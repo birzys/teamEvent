@@ -21,7 +21,10 @@ export const NewParticipant = () => {
     e.preventDefault();
     axios
       .post("http://localhost:8000/participants", form)
-      .then((response) => console.log("successful response", response))
+      .then((response) => {
+        console.log("successful response", response);
+        alert("Entry added successfully");
+      })
       .catch((err) => console.log("err", err));
   };
 
