@@ -29,7 +29,7 @@ export const NewParticipant = () => {
   };
 
   return (
-    <Form onSubmit={handleOnSubmit}>
+    <Form onSubmit={handleOnSubmit} style={{ margin: "50px" }}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Enter name</Form.Label>
         <Form.Control
